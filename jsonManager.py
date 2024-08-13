@@ -1,5 +1,6 @@
 import os
 import json
+from custom_context_manager import CustomOpen
 
 
 class JsonManager:
@@ -12,14 +13,14 @@ class JsonManager:
     def read(self):
         if self.check_existence():
             if os.path.getsize(self.file_name) != 0:
-                with open(self.file_name, 'r') as file:
+                with CustomOpen(self.file_name, 'r') as file:
                     data = json.load(file)
                     return data
             return []
         return []
 
     def write(self, all_data):
-        with open(self.file_name, mode='w') as file:
+        with CustomOpen(self.file_name, mode='w') as file:
             json.dump(all_data, file, indent=4)
             return "Data is added"
 
@@ -30,5 +31,5 @@ class JsonManager:
 
 
 user_manager = JsonManager('./data/users.json')
-teacher_manager = JsonManager('./data/teachers.json')
 group_manager = JsonManager('./data/groups.json')
+lesson_manager = JsonManager('./data/lessons.json')

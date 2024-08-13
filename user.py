@@ -8,10 +8,10 @@ super_password = '00'
 
 
 class User:
-    def __init__(self, name, password, phone):
+    def __init__(self, name, password, email):
         self.name = name
         self.password = password
-        self.phone = phone
+        self.email = email
         self.active = False
 
     @staticmethod

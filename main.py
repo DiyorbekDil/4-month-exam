@@ -1,6 +1,9 @@
 from logging_file import log_decorator
 from user import login, logout
 from group import create_group, del_group, show_groups, add_student_group
+from admin import add_admin, delete_admin, show_all_admins
+from student import add_student, delete_student, show_all_students
+from teacher import add_teacher, delete_teacher, show_all_teachers
 
 
 @log_decorator
@@ -69,11 +72,14 @@ def manage_teachers():
 
     user_input = input('Enter a number: ')
     if user_input == '1':
-        pass
+        add_teacher()
+        manage_teachers()
     elif user_input == '2':
-        pass
+        delete_teacher()
+        manage_teachers()
     elif user_input == '3':
-        pass
+        show_all_teachers()
+        manage_teachers()
     elif user_input == '4':
         return super_admin_menu()
     else:
@@ -94,11 +100,14 @@ def manage_admins():
 
     user_input = input('Enter a number: ')
     if user_input == '1':
-        pass
+        add_admin()
+        manage_admins()
     elif user_input == '2':
-        pass
+        delete_admin()
+        manage_admins()
     elif user_input == '3':
-        pass
+        show_all_admins()
+        manage_admins()
     elif user_input == '4':
         return super_admin_menu()
     else:
@@ -200,13 +209,16 @@ def manage_students():
 
     user_input = input('Enter a number: ')
     if user_input == '1':
-        pass
+        add_student()
+        manage_students()
     elif user_input == '2':
-        pass
+        delete_student()
+        manage_students()
     elif user_input == '3':
         pass
     elif user_input == '4':
-        pass
+        show_all_students()
+        manage_students()
     elif user_input == '5':
         pass
     elif user_input == '6':
