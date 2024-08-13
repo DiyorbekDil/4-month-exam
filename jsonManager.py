@@ -30,3 +30,5 @@ class JsonManager:
 
 
 user_manager = JsonManager('./data/users.json')
+teacher_manager = JsonManager('./data/teachers.json')
+group_manager = JsonManager('./data/groups.json')

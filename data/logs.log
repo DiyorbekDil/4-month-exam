@@ -1,1 +1,4 @@
 13-08-2024 14:14:19 - logging_file - INFO - Function: auth_menu args: () kwargs: {} result: None
+13-08-2024 15:23:03 - logging_file - INFO - Function: send_email args: () kwargs: {} result: None
+13-08-2024 15:23:03 - logging_file - INFO - Function: super_admin_menu args: () kwargs: {} result: None
+13-08-2024 15:23:03 - logging_file - INFO - Function: auth_menu args: () kwargs: {} result: None

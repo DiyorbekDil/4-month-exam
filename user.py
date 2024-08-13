@@ -1,4 +1,5 @@
 import hashlib
+from logging_file import log_decorator
 from jsonManager import user_manager
 
 
@@ -27,6 +28,7 @@ class User:
             idx += 1
 
 
+@log_decorator
 def login() -> int:
     # This function belongs to auth_menu()
     name = input('Enter your name: ')
@@ -51,6 +53,7 @@ def login() -> int:
         return 5
 
 
+@log_decorator
 def logout():
     all_users = user_manager.read()
     idx = 0

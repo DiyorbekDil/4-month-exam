@@ -1,5 +1,6 @@
 from logging_file import log_decorator
 from user import login, logout
+from group import create_group, del_group, show_groups, add_student_group
 
 
 @log_decorator
@@ -166,13 +167,17 @@ def manage_groups():
 
     user_input = input('Enter a number: ')
     if user_input == '1':
-        pass
+        create_group()
+        manage_groups()
     elif user_input == '2':
-        pass
+        del_group()
+        manage_groups()
     elif user_input == '3':
-        pass
+        show_groups()
+        manage_groups()
     elif user_input == '4':
-        pass
+        add_student_group()
+        manage_groups()
     elif user_input == '5':
         return admin_menu()
     else:
