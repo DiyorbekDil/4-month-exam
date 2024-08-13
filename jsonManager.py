@@ -27,3 +27,6 @@ class JsonManager:
         all_data = self.read()
         all_data.append(data)
         return self.write(all_data)
+
+
+user_manager = JsonManager('./data/users.json')
