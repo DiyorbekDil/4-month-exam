@@ -1,4 +1,5 @@
 from logging_file import log_decorator
+from user import login, logout
 
 
 @log_decorator
@@ -11,7 +12,18 @@ def auth_menu():
 
     user_input = input('Enter a number: ')
     if user_input == '1':
-        pass
+        outcome = login()
+        if outcome == 1:
+            return super_admin_menu()
+        elif outcome == 2:
+            return teacher_menu()
+        elif outcome == 3:
+            return admin_menu()
+        elif outcome == 4:
+            return student_menu()
+        else:
+            print('No such a user!')
+            return auth_menu()
     elif user_input == '2':
         return
     else:
@@ -34,9 +46,9 @@ def super_admin_menu():
         return manage_teachers()
     elif user_input == '2':
         return manage_admins()
-    elif user_input == '2':
+    elif user_input == '3':
         return send_email()
-    elif user_input == '2':
+    elif user_input == '4':
         return auth_menu()
     else:
         print('Unexpected character!')
@@ -133,7 +145,8 @@ def admin_menu():
     elif user_input == '2':
         return manage_students()
     elif user_input == '3':
-        pass
+        logout()
+        auth_menu()
     else:
         print('Unexpected character!')
         return admin_menu()
@@ -147,7 +160,7 @@ def manage_groups():
         2.Delete group
         3.Show all groups
         4.Add a student to a group
-        5.Back
+        5.Back admin menu
         '''
     print(text)
 
@@ -176,7 +189,7 @@ def manage_students():
         3.Search student by log-in
         4.Show all students
         5.Accept payment from a student
-        6.Back
+        6.Back admin menu
         '''
     print(text)
 
@@ -216,7 +229,8 @@ def teacher_menu():
     elif user_input == '3':
         pass
     elif user_input == '4':
-        pass
+        logout()
+        auth_menu()
     else:
         print('Unexpected character!')
         return teacher_menu()
@@ -262,7 +276,7 @@ def student_menu():
     elif user_input == '3':
         pass
     elif user_input == '4':
-        pass
+        logout()
     else:
         print('Unexpected character!')
         return student_menu()
