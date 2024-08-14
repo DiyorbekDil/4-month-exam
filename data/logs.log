@@ -154,3 +154,20 @@
 14-08-2024 13:19:57 - logging_file - INFO - Function: login args: () kwargs: {} result: 2
 14-08-2024 13:20:44 - logging_file - INFO - Function: find_group args: ('n50',) kwargs: {} result: True
 14-08-2024 13:20:44 - logging_file - INFO - Function: add_lesson args: () kwargs: {} result: None
+14-08-2024 13:34:33 - logging_file - INFO - Function: login args: () kwargs: {} result: 4
+14-08-2024 13:34:42 - logging_file - ERROR - Function: student_menu args: () kwargs: {} exception: 'balance'
+14-08-2024 13:34:42 - logging_file - ERROR - Function: student_menu args: () kwargs: {} exception: Function: student_menu args: () kwargs: {} exception: 'balance'
+14-08-2024 13:34:42 - logging_file - ERROR - Function: auth_menu args: () kwargs: {} exception: Function: student_menu args: () kwargs: {} exception: Function: student_menu args: () kwargs: {} exception: 'balance'
+14-08-2024 13:35:43 - logging_file - INFO - Function: login args: () kwargs: {} result: 4
+14-08-2024 13:36:06 - logging_file - INFO - Function: logout args: () kwargs: {} result: None
+14-08-2024 13:36:06 - logging_file - INFO - Function: student_menu args: () kwargs: {} result: None
+14-08-2024 13:36:06 - logging_file - INFO - Function: student_menu args: () kwargs: {} result: None
+14-08-2024 13:36:06 - logging_file - INFO - Function: student_menu args: () kwargs: {} result: None
+14-08-2024 13:36:06 - logging_file - INFO - Function: auth_menu args: () kwargs: {} result: None
+14-08-2024 13:58:44 - logging_file - INFO - Function: login args: () kwargs: {} result: 1
+14-08-2024 14:08:39 - logging_file - INFO - Function: login args: () kwargs: {} result: 1
+14-08-2024 14:09:24 - logging_file - INFO - Function: login args: () kwargs: {} result: 5
+14-08-2024 14:09:32 - logging_file - INFO - Function: login args: () kwargs: {} result: 3
+14-08-2024 14:10:19 - logging_file - INFO - Function: add_student args: () kwargs: {} result: None
+14-08-2024 14:10:37 - logging_file - INFO - Function: logout args: () kwargs: {} result: None
+14-08-2024 14:10:46 - logging_file - INFO - Function: login args: () kwargs: {} result: 1

@@ -12,7 +12,7 @@
         "name": "2",
         "password": "d4735e3a265e16eee03f59718b9b5d03019c07d8b6c51f90da3a666eec13ab35",
         "email": "2",
-        "active": true,
+        "active": false,
         "subject": "2",
         "experience": 2,
         "kind": "teacher"
@@ -41,5 +41,23 @@
         "balance": 2640090.0,
         "gender": "female",
         "kind": "student"
+    },
+    {
+        "name": "doston",
+        "password": "ef797c8118f02dfb649607dd5d3f8c7623048c9c063d532cc95c5ed7a898a64f",
+        "email": "isoqovdiyorbek742@gmail.com",
+        "active": false,
+        "balance": 0,
+        "gender": "male",
+        "kind": "student"
+    },
+    {
+        "name": "Hoshim",
+        "password": "e24df920078c3dd4e7e8d2442f00e5c9ab2a231bb3918d65cc50906e49ecaef4",
+        "email": "isoqovdiyorbek742@gmail.com",
+        "active": false,
+        "subject": "dasturlash",
+        "experience": 3,
+        "kind": "teacher"
     }
 ]

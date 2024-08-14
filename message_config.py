@@ -1,7 +1,7 @@
 from datetime import datetime as dt
 from jsonManager import user_manager, message_manager
-from user import User
 import smtplib
+import threading
 
 
 smtp_server = 'smtp.gmail.com'
@@ -28,13 +28,13 @@ def send_users_message(to_who):
     for user in all_users:
         if user['kind'] == 'student':
             if to_who == 'all':
-                send_mail(user['email'], subject, text)
+                threading.Thread(target=send_mail, args=(user['email'], subject, text)).start()
             elif to_who == 'boys':
                 if user['gender'] == 'male':
-                    send_mail(user['email'], subject, text)
+                    threading.Thread(target=send_mail, args=(user['email'], subject, text)).start()
             elif to_who == 'girls':
                 if user['gender'] == 'female':
-                    send_mail(user['email'], subject, text)
+                    threading.Thread(target=send_mail, args=(user['email'], subject, text)).start()
     print('Sent successfully!')
     return
 

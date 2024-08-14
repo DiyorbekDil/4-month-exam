@@ -1,9 +1,9 @@
 from user import User
-from datetime import datetime as dt
-from jsonManager import group_manager, lesson_manager, user_manager
-from typing import Union
+from jsonManager import group_manager, user_manager
 from logging_file import log_decorator
 from decimal import Decimal
+import threading
+from message_config import send_mail
 
 
 class Student(User):
@@ -20,6 +20,8 @@ def add_student():
     password = input('Enter student password: ')
     email = input('Enter student email: ')
     gender = input('Student gender: ')
+    data = {'login': name, 'parol': password}
+    threading.Thread(target=send_mail, args=(email, 'login vs parol', data)).start()
     hashed = User.hash_password(password)
     admin = Student(name, hashed, email, gender)
     user_manager.add(admin.__dict__)
@@ -101,7 +103,7 @@ def show_student_groups():
     print('Group name - teacher - period - price')
     for group in all_groups:
         for student in group['students']:
-            if student['email'] == active['email']:
+            if student['email'] == active['email'] and student['name'] == active['name']:
                 print(f'{group["name"]} - {group["teacher"]["name"]} - '
                       f'{group["period"]} - {group["price"]}')
 

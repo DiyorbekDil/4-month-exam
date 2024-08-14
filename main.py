@@ -3,6 +3,7 @@ from user import login, logout
 from group import create_group, del_group, show_groups, add_student_group
 from admin import add_admin, delete_admin, show_all_admins
 from student import add_student, delete_student, show_all_students, search_by_login, accept_payment
+from student import show_student_groups, show_my_balance
 from teacher import add_teacher, delete_teacher, show_all_teachers, show_my_groups
 from message_config import send_users_message
 from lesson import add_lesson
@@ -292,13 +293,14 @@ def student_menu():
 
     user_input = input('Enter a number: ')
     if user_input == '1':
-        pass
+        show_student_groups()
+        student_menu()
     elif user_input == '2':
-        pass
+        show_my_balance()
+        student_menu()
     elif user_input == '3':
-        pass
-    elif user_input == '4':
         logout()
+        auth_menu()
     else:
         print('Unexpected character!')
         return student_menu()
