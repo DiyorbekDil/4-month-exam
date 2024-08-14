@@ -7,7 +7,7 @@ import smtplib
 smtp_server = 'smtp.gmail.com'
 smtp_port = 587
 smtp_sender = 'isoqovdiyorbek742@gmail.com'
-smtp_password = 'bbyq khgf iqjx moym'
+smtp_password = 'zguu kqct xtzn jnkb'
 
 
 class Message:
@@ -33,7 +33,7 @@ def send_users_message(to_who):
                 if user['gender'] == 'male':
                     send_mail(user['email'], subject, text)
             elif to_who == 'girls':
-                if user['gender'] < 'female':
+                if user['gender'] == 'female':
                     send_mail(user['email'], subject, text)
     print('Sent successfully!')
     return
@@ -49,4 +49,4 @@ def send_mail(to_user, subject, message):
         server.quit()
         return True
     except smtplib.SMTPException as e:
-        return False
+        return False, e
