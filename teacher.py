@@ -1,6 +1,6 @@
 from user import User
 from typing import Union
-from jsonManager import user_manager, lesson_manager, group_manager
+from jsonManager import user_manager, group_manager
 from datetime import datetime as dt
 
 
@@ -15,7 +15,7 @@ class Teacher(User):
 def add_teacher():
     try:
         name = input('Enter teacher name: ')
-        password = input('Teacher password: ')
+        password = User.hash_password(input('Teacher password: '))
         email = input('Teacher email: ')
         subject = input('Teacher subject: ')
         experience = int(input('Teacher experience: '))
@@ -48,16 +48,27 @@ def show_all_teachers():
     all_users = user_manager.read()
     print('Teacher name - email - subject - experience')
     for user in all_users:
-        print(f"{user['name']} - {user['email']} - {user['subject']} - {user['experience']}")
+        if user['kind'] == 'teacher':
+            print(f"{user['name']} - {user['email']} - {user['subject']} - {user['experience']}")
 
 
-# def find_teacher(name):
-#     all_users = user_manager.read()
-#     for user in all_users:
-#         if user['name'] == name and user['kind'] == 'teacher':
-#             return True
-#     else:
-#         return False
+def find_teacher(email):
+    all_users = user_manager.read()
+    for user in all_users:
+        if user['email'] == email and user['kind'] == 'teacher':
+            return user
+    else:
+        return False
+
+
+def show_my_groups():
+    teacher = User.active_user()
+    all_groups = group_manager.read()
+    print('Group name - start time - number of students')
+    for group in all_groups:
+        if group['teacher']['name'] == teacher['name']:
+            print(f'{group["name"]} - {group["start"]} - {len(group["students"])}')
+
 #
 #
 # def find_lessons():

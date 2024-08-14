@@ -2,8 +2,10 @@ from logging_file import log_decorator
 from user import login, logout
 from group import create_group, del_group, show_groups, add_student_group
 from admin import add_admin, delete_admin, show_all_admins
-from student import add_student, delete_student, show_all_students
-from teacher import add_teacher, delete_teacher, show_all_teachers
+from student import add_student, delete_student, show_all_students, search_by_login, accept_payment
+from teacher import add_teacher, delete_teacher, show_all_teachers, show_my_groups
+from message_config import send_users_message
+from lesson import add_lesson
 
 
 @log_decorator
@@ -128,11 +130,14 @@ def send_email():
 
     user_input = input('Enter a number: ')
     if user_input == '1':
-        pass
+        send_users_message('all')
+        send_email()
     elif user_input == '2':
-        pass
+        send_users_message('boys')
+        send_email()
     elif user_input == '3':
-        pass
+        send_users_message('girls')
+        send_email()
     elif user_input == '4':
         return super_admin_menu()
     else:
@@ -215,12 +220,14 @@ def manage_students():
         delete_student()
         manage_students()
     elif user_input == '3':
-        pass
+        search_by_login()
+        manage_students()
     elif user_input == '4':
         show_all_students()
         manage_students()
     elif user_input == '5':
-        pass
+        accept_payment()
+        manage_students()
     elif user_input == '6':
         return admin_menu()
     else:
@@ -233,19 +240,17 @@ def teacher_menu():
     text = '''
     1.Show my groups
     2.Start lesson
-    3.Show my ended lessons
-    4.Log-out
+    3.Log-out
     '''
     print(text)
 
     user_input = input('Enter a number: ')
     if user_input == '1':
-        pass
+        show_my_groups()
+        teacher_menu()
     elif user_input == '2':
         return start_lesson()
     elif user_input == '3':
-        pass
-    elif user_input == '4':
         logout()
         auth_menu()
     else:
@@ -257,15 +262,16 @@ def teacher_menu():
 def start_lesson():
     # This function belongs to teacher_menu()
     text = '''
-        1.Grade students
-        2.End lesson
+        1.Start lesson
+        2.Grade students
         3.Back teacher menu
         '''
     print(text)
 
     user_input = input('Enter a number: ')
     if user_input == '1':
-        pass
+        add_lesson()
+        start_lesson()
     elif user_input == '2':
         pass
     elif user_input == '3':
@@ -280,8 +286,7 @@ def student_menu():
     text = '''
     1.Show my groups
     2.Show my balance
-    3.Show my grades by group
-    4.Log-out
+    3.Log-out
     '''
     print(text)
 

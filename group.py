@@ -1,25 +1,42 @@
 from random import randint
 from logging_file import log_decorator
 from jsonManager import group_manager, user_manager
+from decimal import Decimal as D
+from teacher import find_teacher
 
 
 class Group:
-    def __init__(self, name, start, end):
+    def __init__(self, name, start, end, period, price, teacher):
         self.name = name
         self.start = start
         self.end = end
+        self.period = period
+        self.price = price
+        self.teacher = teacher
         self.iden_num = randint(0, 1_000_000)
         self.students = []
 
 
 @log_decorator
 def create_group():
-    name = input('Enter group name: ')
-    start = input('Start time (dd/mm/yyyy): ')
-    end = input('End time (dd/mm/yyyy): ')
-    group = Group(name, start, end)
-    group_manager.add(group.__dict__)
-    print('Successfully created')
+    try:
+        name = input('Enter group name: ')
+        start = input('Start time (dd/mm/yyyy): ')
+        end = input('End time (dd/mm/yyyy): ')
+        period = int(input('Period (month): '))
+        price = int(input('Price per month: '))
+        teacher_mail = input('Teacher email: ')
+        teacher = find_teacher(teacher_mail)
+        if not teacher:
+            print('No such a teacher!')
+            return
+        group = Group(name, start, end, period, price, teacher)
+        group_manager.add(group.__dict__)
+        print('Successfully created')
+        return
+    except ValueError:
+        print('You entered something wrong!')
+        return
 
 
 @log_decorator
@@ -83,10 +100,10 @@ def show_groups():
 
 
 @log_decorator
-def find_group(iden_num):
+def find_group(name):
     all_groups = group_manager.read()
     for group in all_groups:
-        if group['iden_num'] == iden_num:
+        if group['name'] == name:
             return True
     else:
         return False

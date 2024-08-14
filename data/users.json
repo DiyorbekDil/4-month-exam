@@ -1,5 +1,23 @@
 [
     {
+        "name": "1",
+        "password": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b",
+        "email": "1",
+        "active": false,
+        "subject": "1",
+        "experience": 1,
+        "kind": "teacher"
+    },
+    {
+        "name": "2",
+        "password": "d4735e3a265e16eee03f59718b9b5d03019c07d8b6c51f90da3a666eec13ab35",
+        "email": "2",
+        "active": true,
+        "subject": "2",
+        "experience": 2,
+        "kind": "teacher"
+    },
+    {
         "name": "diyor",
         "password": "03ac674216f3e15c761ee1a5e255f067953623c8b388b4459e13f978d7c846f4",
         "email": "diyor",
@@ -7,11 +25,21 @@
         "kind": "admin"
     },
     {
-        "name": "nasim",
+        "name": "diyorbek",
         "password": "a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3",
-        "email": "nasim",
+        "email": "isoqovdiyorbek742@gmail.com",
         "active": false,
-        "balance": 0,
+        "balance": 1320000.0,
+        "gender": "male",
+        "kind": "student"
+    },
+    {
+        "name": "madina",
+        "password": "0e0c8d9c5fa46e66bd8293289e410bbc9e35da10a211a4d5c3e0b64a373db54f",
+        "email": "isoqovdiyorbek742@gmail.com",
+        "active": false,
+        "balance": 2640090.0,
+        "gender": "female",
         "kind": "student"
     }
 ]

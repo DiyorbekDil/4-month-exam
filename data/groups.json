@@ -1,0 +1,29 @@
+[
+    {
+        "name": "n50",
+        "start": "24/04/2024",
+        "end": "04/12/2024",
+        "period": 8,
+        "price": 1320000,
+        "teacher": {
+            "name": "2",
+            "password": "d4735e3a265e16eee03f59718b9b5d03019c07d8b6c51f90da3a666eec13ab35",
+            "email": "2",
+            "active": false,
+            "subject": "2",
+            "experience": 2,
+            "kind": "teacher"
+        },
+        "iden_num": 129336,
+        "students": [
+            {
+                "name": "diyorbek",
+                "email": "isoqovdiyorbek742@gmail.com"
+            },
+            {
+                "name": "madina",
+                "email": "isoqovdiyorbek742@gmail.com"
+            }
+        ]
+    }
+]

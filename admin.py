@@ -12,10 +12,9 @@ class Admin(User):
 @log_decorator
 def add_admin():
     name = input('Enter admin name: ')
-    password = input('Enter admin password: ')
+    password = User.hash_password(input('Enter admin password: '))
     email = input('Enter admin email: ')
-    hashed = User.hash_password(password)
-    admin = Admin(name, hashed, email)
+    admin = Admin(name, password, email)
     user_manager.add(admin.__dict__)
     print('Added successfully!')
     return
@@ -28,7 +27,8 @@ def delete_admin():
     all_users = user_manager.read()
     i = 0
     while i < len(all_users):
-        if all_users[i]['name'] == name and all_users[i]['password'] == password:
+        if all_users[i]['name'] == name and all_users[i]['password'] == password and\
+                                    all_users[i]['kind'] == 'admin':
             del all_users[i]
             user_manager.write(all_users)
             print('Deleted!')
